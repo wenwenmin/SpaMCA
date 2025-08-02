@@ -13,4 +13,4 @@ We evaluate SpaMCA on six publicly available multi-omics datasets, benchmarking 
 
 ## 🚀 Get Started
 We provided codes for reproducing the experiments of the paper, and comprehensive tutorials for using SpaMCA.
-- Please see `A1.ipynb`.
+- Please see `Demo.ipynb`.
