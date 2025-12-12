@@ -127,21 +127,17 @@ def preprocess_graph(adj):
     return sparse_mx_to_torch_sparse_tensor(adj_normalized)
 
 
+
 def adjacent_matrix_preprocessing(adata_omics1, adata_omics2):
     adj_spatial_omics1 = adata_omics1.uns['adj_spatial']
     adj_spatial_omics1 = transform_adjacent_matrix(adj_spatial_omics1)
-    adj_spatial_omics2 = adata_omics2.uns['adj_spatial']
-    adj_spatial_omics2 = transform_adjacent_matrix(adj_spatial_omics2)
 
     adj_spatial_omics1 = adj_spatial_omics1.toarray()
-    adj_spatial_omics2 = adj_spatial_omics2.toarray()
     adj_spatial_omics1 = adj_spatial_omics1 + adj_spatial_omics1.T
     adj_spatial_omics1 = np.where(adj_spatial_omics1 > 1, 1, adj_spatial_omics1)
-    adj_spatial_omics2 = adj_spatial_omics2 + adj_spatial_omics2.T
-    adj_spatial_omics2 = np.where(adj_spatial_omics2 > 1, 1, adj_spatial_omics2)
+
 
     adj_spatial_omics1 = preprocess_graph(adj_spatial_omics1)
-    adj_spatial_omics2 = preprocess_graph(adj_spatial_omics2)
 
     adj_feature_omics1 = torch.FloatTensor(adata_omics1.obsm['adj_feature'].copy().toarray())
     adj_feature_omics2 = torch.FloatTensor(adata_omics2.obsm['adj_feature'].copy().toarray())
@@ -156,7 +152,7 @@ def adjacent_matrix_preprocessing(adata_omics1, adata_omics2):
 
     adj = {
         'adj_spatial_omics1': adj_spatial_omics1,
-        'adj_spatial_omics2': adj_spatial_omics2,
+        'adj_spatial_omics2': adj_spatial_omics1,
         'adj_feature_omics1': adj_feature_omics1,
         'adj_feature_omics2': adj_feature_omics2,
     }
@@ -211,3 +207,4 @@ def fix_seed(seed):
 
     os.environ['PYTHONHASHSEED'] = str(seed)
     os.environ['CUBLAS_WORKSPACE_CONFIG'] = ':4096:8'
+
