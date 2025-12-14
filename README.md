@@ -19,7 +19,7 @@ All the datasets used in this paper can be downloaded from url：[https://zenodo
 
 
 ## Running demo
-We provided codes for reproducing the experiments of the paper, and comprehensive tutorials for using SpaMCA. Please see `[Demo.ipynb]`(Demo.ipynb). 
+We provided codes for reproducing the experiments of the paper, and comprehensive tutorials for using SpaMCA. Please see `[Demo.ipynb]`. 
 
 ## Baselines
 We have listed the sources of some representative baselines below, and we would like to express our gratitude to the authors of these baselines for their generous sharing.
