@@ -7,7 +7,7 @@ To address these limitations, we propose **SpaMCA** (**Spa**tial **M**ulti-modal
 
 We evaluated SpaMCA on five publicly available spatial multi-omics datasets and one simulated dataset, and conducted comprehensive comparisons against ten state-of-the-art single-omics and multi-omics clustering methods. Experimental results and ablation studies demonstrate that SpaMCA consistently outperforms existing approaches in terms of clustering accuracy, noise robustness, and the integration of heterogeneous omics modalities.
 # OverView
-![SpaMCA.png](SpaMCA.png)
+![SpaMCA.png](SpaMCA+.jpg)
 
 
 ## Installations
