@@ -34,4 +34,4 @@ We have listed the sources of some representative baselines below, and we would 
 Part of the code in this repository, such as the training framework based on PyTorch Lightning, is adapted from [SpatialGlue](https://github.com/JinmiaoChenLab/SpatialGlue). We are grateful to the authors for their excellent work.
 
 ## Contact details
-If you have any questions, please contact zhaojinjie@aliyun.com.
+If you have any questions, please contact zhaojinjie@aliyun.com and  minwenwen@ynu.edu.com.
