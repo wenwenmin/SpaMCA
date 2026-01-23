@@ -119,16 +119,14 @@ class Train_SpaMCA:
             y = results['emb_cluster']
 
             y_max = torch.maximum(torch.maximum(y1, y2), y)
+            
+            p = torch.nn.functional.normalize(y_max ** 2, dim=1, p=2)
 
-            y_max = y_max / (y_max.sum(dim=1, keepdim=True) + EPS)
-
-            y = torch.clamp(y, min=EPS)
-
-            y = y / (y.sum(dim=1, keepdim=True) + EPS)
+            p = p + EPS
 
             self.hc_loss = nn.KLDivLoss(reduction='batchmean')(
                 torch.log(y),
-                y_max.detach()
+                p.detach()
             )
 
             self.inst_loss = sce_loss(
@@ -291,3 +289,4 @@ class ClusterLoss(nn.Module):
         loss /= N
 
         return loss + alpha * ne_loss
+
