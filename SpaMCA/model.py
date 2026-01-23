@@ -33,8 +33,9 @@ class Encoder_overall(Module):
                                                 self.dim_out_feat_omics1)
         self.MLP = MLP(self.dim_out_feat_omics1 * 2, self.dim_out_feat_omics1, self.dim_out_feat_omics1)
 
-        self.clusters = ClusterProject(self.dim_out_feat_omics1, self.n_clusters)
-
+        self.clusters_1 = ClusterProject(self.dim_out_feat_omics1, self.n_clusters) 
+        self.clusters_2 = ClusterProject(self.dim_out_feat_omics2, self.n_clusters) 
+        self.clusters_3 = ClusterProject(self.dim_out_feat_omics2, self.n_clusters)
     def forward(self, features_omics1, features_omics2,
                 adj_spatial_omics1, adj_feature_omics1,
                 adj_spatial_omics2, adj_feature_omics2):
@@ -60,9 +61,9 @@ class Encoder_overall(Module):
         emb_instanceProject_omics1 = self.instanceProject1(emb_latent_omics1)
         emb_instanceProject_omics2 = self.instanceProject2(emb_latent_omics2)
 
-        emb_cluster1 = self.clusters(emb_latent_omics1)
-        emb_cluster2 = self.clusters(emb_latent_omics2)
-        emb_cluster = self.clusters(emb_latent_combined)
+        emb_cluster1 = self.clusters_1(emb_latent_omics1)
+        emb_cluster2 = self.clusters_2(emb_latent_omics2)
+        emb_cluster = self.clusters_3(emb_latent_combined)
 
         results = {
             'emb_latent_omics1': emb_latent_omics1,
@@ -260,3 +261,4 @@ class MLP(nn.Module):
         out = self.fc2(out)
 
         return out
+
