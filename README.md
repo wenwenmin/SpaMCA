@@ -6,7 +6,7 @@ To address these challenges, we propose **SpaMCA** (**Spa**tial **M**ulti-modal 
 
 Finally, a modality semantic distribution alignment module is incorporated at the clustering level to dynamically align modality-specific and fused representations toward a high-confidence target distribution. We evaluate SpaMCA on seven spatial multi-omics datasets, including six real-world datasets and one simulated benchmark, and compare it with ten state-of-the-art single-omics and multi-omics clustering methods. Experimental results and ablation studies demonstrate that SpaMCA consistently outperforms existing approaches in terms of clustering accuracy, robustness to noise, and effective integration of heterogeneous omics modalities.
 # OverView
-![SpaMCA.png](SpaMCA+.jpg)
+![SpaMCA.png](SpaMCA+.png)
 
 
 ## Installations
